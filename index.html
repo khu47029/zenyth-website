@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <!-- ═══════════════════════ SEO & META ═══════════════════════ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ZENYTH — The next-generation marketplace for electronics, fashion, home, beauty and more. Discover. Buy. Elevate." />
+  <meta name="keywords" content="ZENYTH, marketplace, electronics, fashion, ecommerce, shopping platform" />
+  <meta name="author" content="ZENYTH Inc." />
+  <meta property="og:title" content="ZENYTH — Discover. Buy. Elevate." />
+  <meta property="og:description" content="The next-gen marketplace with curated products across all categories." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0B0B14" />
+  <title>ZENYTH — Discover. Buy. Elevate.</title>
+
+  <!-- ═══════════════════════ FONTS ═══════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Clash Display for headings, DM Sans for body — distinctive pair -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- Syne for display headings — editorial, geometric -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- ═══════════════════════ ICONS ═══════════════════════ -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- ═══════════════════════ STYLESHEETS ═══════════════════════ -->
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- ░░░░░░░░░░ PRELOADER ░░░░░░░░░░ -->
+  <div id="preloader" role="status" aria-label="Loading ZENYTH">
+    <div class="pre-logo">
+      <span class="pre-z">Z</span>
+      <span class="pre-rest">ENYTH</span>
+    </div>
+    <div class="pre-track">
+      <div class="pre-fill" id="pre-fill"></div>
+    </div>
+    <div class="pre-status" id="pre-status">Initializing…</div>
+  </div>
+
+  <!-- ░░░░░░░░░░ SCROLL PROGRESS ░░░░░░░░░░ -->
+  <div id="scroll-bar" aria-hidden="true"></div>
+
+  <!-- ░░░░░░░░░░ TOAST CONTAINER ░░░░░░░░░░ -->
+  <div id="toast-container" aria-live="polite" aria-atomic="false"></div>
+
+  <!-- ░░░░░░░░░░ SEARCH OVERLAY ░░░░░░░░░░ -->
+  <div id="search-overlay" class="search-overlay" aria-hidden="true" role="dialog" aria-label="Search">
+    <div class="so-backdrop"></div>
+    <div class="so-panel">
+      <div class="so-input-wrap">
+        <i class="fa-solid fa-magnifying-glass so-icon" aria-hidden="true"></i>
+        <input type="text" id="overlay-search-input" class="so-input"
+               placeholder="Search products, brands, categories…"
+               autocomplete="off" aria-label="Search" />
+        <button class="so-clear" id="so-clear-btn" aria-label="Clear search">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="so-suggestions" id="so-suggestions" role="listbox" aria-label="Search suggestions"></div>
+      <div class="so-trending" id="so-trending">
+        <p class="so-tl">Trending</p>
+        <div class="so-tags" id="so-tags"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+       ══════════ NAVBAR ══════════
+  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <header id="site-header" role="banner">
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+      <div class="nav-container">
+
+        <!-- Logo -->
+        <a href="#" class="nav-logo" id="nav-logo-link" aria-label="ZENYTH Home">
+          <span class="logo-z">Z</span>
+          <span class="logo-rest">ENYTH</span>
+        </a>
+
+        <!-- Category Mega Nav (desktop) -->
+        <div class="nav-categories" id="nav-categories" role="menubar">
+
+          <div class="nav-cat-item" role="none">
+            <button class="nav-cat-btn" role="menuitem" aria-haspopup="true" aria-expanded="false"
+                    data-category="electronics">
+              <i class="fa-solid fa-microchip" aria-hidden="true"></i> Electronics
+              <i class="fa-solid fa-chevron-down nav-chevron" aria-hidden="true"></i>
+            </button>
+            <div class="mega-menu" role="menu" aria-label="Electronics categories">
+              <div class="mega-col">
+                <p class="mega-heading">Devices</p>
+                <a href="#" class="mega-link" data-filter-cat="electronics" data-filter-sub="smartphones">Smartphones</a>
+                <a href="#" class="mega-link" data-filter-cat="electronics" data-filter-sub="laptops">Laptops</a>
+                <a href="#" class="mega-link" data-filter-cat="electronics" data-filter-sub="tablets">Tablets</a>
+                <a href="#" class="mega-link" data-filter-cat="electronics" data-filter-sub="cameras">Cameras</a>
+              </div>
+              <div class="mega-col">
+                <p class="mega-heading">Accessories</p>
+                <a href="#" class="mega-link" data-filter-cat="electronics" data-filter-sub="earbuds">Earbuds & Headphones</a>
+                <a href="#" class="mega-link" data-filter-cat="electronics" data-filter-sub="watches">Smart Watches</a>
+                <a href="#" class="mega-link" data-filter-cat="electronics" data-filter-sub="cables">Cables & Chargers</a>
+              </div>
+              <div class="mega-col mega-promo">
+                <div class="mega-promo-card">
+                  <p class="mp-tag">New Arrivals</p>
+                  <p class="mp-title">Latest Tech 2024</p>
+                  <p class="mp-desc">Explore cutting-edge gadgets</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-cat-item" role="none">
+            <button class="nav-cat-btn" role="menuitem" aria-haspopup="true" aria-expanded="false"
+                    data-category="fashion">
+              <i class="fa-solid fa-shirt" aria-hidden="true"></i> Fashion
+              <i class="fa-solid fa-chevron-down nav-chevron" aria-hidden="true"></i>
+            </button>
+            <div class="mega-menu" role="menu" aria-label="Fashion categories">
+              <div class="mega-col">
+                <p class="mega-heading">Men</p>
+                <a href="#" class="mega-link" data-filter-cat="fashion">T-Shirts & Tops</a>
+                <a href="#" class="mega-link" data-filter-cat="fashion">Jeans & Trousers</a>
+                <a href="#" class="mega-link" data-filter-cat="fashion">Footwear</a>
+              </div>
+              <div class="mega-col">
+                <p class="mega-heading">Women</p>
+                <a href="#" class="mega-link" data-filter-cat="fashion">Dresses</a>
+                <a href="#" class="mega-link" data-filter-cat="fashion">Handbags</a>
+                <a href="#" class="mega-link" data-filter-cat="fashion">Jewellery</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-cat-item" role="none">
+            <button class="nav-cat-btn" role="menuitem" aria-haspopup="true" aria-expanded="false"
+                    data-category="home">
+              <i class="fa-solid fa-house" aria-hidden="true"></i> Home
+              <i class="fa-solid fa-chevron-down nav-chevron" aria-hidden="true"></i>
+            </button>
+            <div class="mega-menu" role="menu" aria-label="Home categories">
+              <div class="mega-col">
+                <p class="mega-heading">Living</p>
+                <a href="#" class="mega-link" data-filter-cat="home">Furniture</a>
+                <a href="#" class="mega-link" data-filter-cat="home">Decor</a>
+                <a href="#" class="mega-link" data-filter-cat="home">Lighting</a>
+              </div>
+              <div class="mega-col">
+                <p class="mega-heading">Kitchen</p>
+                <a href="#" class="mega-link" data-filter-cat="home">Appliances</a>
+                <a href="#" class="mega-link" data-filter-cat="home">Cookware</a>
+                <a href="#" class="mega-link" data-filter-cat="home">Storage</a>
+              </div>
+            </div>
+          </div>
+
+          <a href="#" class="nav-cat-simple" data-page="products" data-cat="beauty">
+            <i class="fa-solid fa-spa" aria-hidden="true"></i> Beauty
+          </a>
+          <a href="#" class="nav-cat-simple" data-page="products" data-cat="sports">
+            <i class="fa-solid fa-dumbbell" aria-hidden="true"></i> Sports
+          </a>
+          <a href="#" class="nav-cat-simple" data-page="products" data-cat="books">
+            <i class="fa-solid fa-book" aria-hidden="true"></i> Books
+          </a>
+
+        </div>
+
+        <!-- Nav Right Actions -->
+        <div class="nav-actions">
+          <!-- Search trigger -->
+          <button class="nav-action-btn" id="search-trigger-btn" aria-label="Open search">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          </button>
+
+          <!-- Theme toggle -->
+          <button class="nav-action-btn" id="theme-toggle-btn" aria-label="Toggle theme">
+            <i class="fa-solid fa-moon" id="theme-icon" aria-hidden="true"></i>
+          </button>
+
+          <!-- Wishlist -->
+          <button class="nav-action-btn" id="wishlist-btn" aria-label="Wishlist">
+            <i class="fa-regular fa-heart" aria-hidden="true"></i>
+            <span class="nav-badge" id="wishlist-badge" style="display:none">0</span>
+          </button>
+
+          <!-- Cart -->
+          <button class="nav-action-btn cart-btn" id="cart-nav-btn" aria-label="Shopping cart">
+            <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+            <span class="nav-badge" id="cart-badge" style="display:none">0</span>
+          </button>
+
+          <!-- User -->
+          <button class="nav-action-btn user-btn" id="user-nav-btn" aria-label="Account">
+            <i class="fa-regular fa-user" aria-hidden="true"></i>
+          </button>
+
+          <!-- Mobile hamburger -->
+          <button class="hamburger" id="hamburger-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Mobile Nav Drawer -->
+      <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+        <div class="mn-search">
+          <input type="text" class="mn-search-input" id="mobile-search-input"
+                 placeholder="Search ZENYTH…" aria-label="Mobile search" />
+        </div>
+        <nav class="mn-links" role="navigation" aria-label="Mobile navigation">
+          <a href="#" class="mn-link" data-page="home">🏠 Home</a>
+          <a href="#" class="mn-link" data-page="products" data-cat="electronics">📱 Electronics</a>
+          <a href="#" class="mn-link" data-page="products" data-cat="fashion">👗 Fashion</a>
+          <a href="#" class="mn-link" data-page="products" data-cat="home">🏡 Home & Living</a>
+          <a href="#" class="mn-link" data-page="products" data-cat="beauty">✨ Beauty</a>
+          <a href="#" class="mn-link" data-page="products" data-cat="sports">🏋️ Sports</a>
+          <a href="#" class="mn-link" data-page="cart">🛒 Cart</a>
+          <a href="#" class="mn-link" data-page="login">👤 Account</a>
+        </nav>
+      </div>
+
+    </nav>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════
+       MAIN APP CONTAINER — JS renders pages here
+  ═══════════════════════════════════════════════ -->
+  <main id="app" role="main">
+    <!-- Dynamic content injected by app.js -->
+    <div class="page-loading" id="page-loading" aria-live="polite">
+      <div class="pl-spinner" aria-label="Loading page"></div>
+    </div>
+  </main>
+
+  <!-- ░░░░░░░░░░ FOOTER ░░░░░░░░░░ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+
+      <div class="footer-top">
+        <!-- Brand -->
+        <div class="footer-brand">
+          <a href="#" class="nav-logo footer-logo" aria-label="ZENYTH Home">
+            <span class="logo-z">Z</span><span class="logo-rest">ENYTH</span>
+          </a>
+          <p class="footer-tagline">The next-generation marketplace for everything you love.</p>
+          <div class="footer-socials" role="list" aria-label="Social media">
+            <a href="#" class="fs-link" role="listitem" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="fs-link" role="listitem" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="fs-link" role="listitem" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="fs-link" role="listitem" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <nav class="footer-col" aria-label="Shop navigation">
+          <h3 class="fc-title">Shop</h3>
+          <ul><li><a href="#" data-page="products" data-cat="electronics">Electronics</a></li>
+          <li><a href="#" data-page="products" data-cat="fashion">Fashion</a></li>
+          <li><a href="#" data-page="products" data-cat="home">Home & Living</a></li>
+          <li><a href="#" data-page="products" data-cat="beauty">Beauty</a></li>
+          <li><a href="#" data-page="products" data-cat="sports">Sports</a></li>
+          <li><a href="#" data-page="products" data-cat="books">Books</a></li></ul>
+        </nav>
+
+        <nav class="footer-col" aria-label="Company navigation">
+          <h3 class="fc-title">Company</h3>
+          <ul><li><a href="#">About ZENYTH</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Investor Relations</a></li></ul>
+        </nav>
+
+        <nav class="footer-col" aria-label="Customer support navigation">
+          <h3 class="fc-title">Support</h3>
+          <ul><li><a href="#">Help Center</a></li>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Seller Portal</a></li>
+          <li><a href="#">Contact Us</a></li></ul>
+        </nav>
+
+        <!-- Newsletter -->
+        <div class="footer-newsletter">
+          <h3 class="fc-title">Stay in the loop</h3>
+          <p>Get deals, drops, and discoveries in your inbox.</p>
+          <div class="fn-form">
+            <input type="email" class="fn-input" placeholder="Your email address" aria-label="Email for newsletter" />
+            <button class="fn-btn" aria-label="Subscribe">
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+          <p class="fn-note">No spam. Unsubscribe anytime.</p>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="footer-year">2024</span> ZENYTH Inc. All rights reserved.</p>
+        <div class="fb-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Settings</a>
+        </div>
+        <div class="fb-payments" aria-label="Accepted payment methods">
+          <i class="fa-brands fa-cc-visa" title="Visa"></i>
+          <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+          <i class="fa-brands fa-cc-paypal" title="PayPal"></i>
+          <i class="fa-brands fa-cc-apple-pay" title="Apple Pay"></i>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ░░░░░░░░░░ BACK TO TOP ░░░░░░░░░░ -->
+  <button id="back-top" aria-label="Back to top" title="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+  <!-- Load order matters: data → cart → search → ui → app -->
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
